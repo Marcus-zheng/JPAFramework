@@ -9,7 +9,7 @@
         <version>1.0-SNAPSHOT</version>
     </parent>
     <groupId>com.marcus</groupId>
-    <artifactId>marcus.security</artifactId>
+    <artifactId>marcus-security</artifactId>
     <version>1.0-SNAPSHOT</version>
     <name>${project.artifactId}</name>
 

@@ -18,7 +18,7 @@ public class BaseController {
     protected HttpServletResponse response;
 
     protected SecuritySubject getLoginSubject(){
-        SecuritySubject securitySubject = (SecuritySubject) request.getSession().getAttribute(BaseConstant.SESSION_FLAG);
+        SecuritySubject securitySubject = (SecuritySubject) request.getSession().getAttribute(BaseConstant.SESSION_USER);
         return securitySubject;
     }
 }
