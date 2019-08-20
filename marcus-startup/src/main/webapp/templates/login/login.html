@@ -1,0 +1,126 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>登录</title>
+    <link rel="stylesheet" href="/static/login/css/auth.css">
+    <link rel="stylesheet" href="/static/plugins/bootstrap/ladda/ladda-themeless.css">
+</head>
+
+<body>
+<div class="lowin">
+    <div class="lowin-brand">
+        <img src="/static/login/img/kodinger.jpg" alt="logo">
+    </div>
+    <div class="lowin-wrapper">
+        <div class="lowin-box lowin-login">
+            <div class="lowin-box-inner">
+                    <div class="lowin-group">
+                        <label>账号<a href="#" class="login-back-link">登录?</a></label>
+                        <input type="text" name="loginName" class="lowin-input login-param forget-param" placeholder="用户名">
+                    </div>
+                    <div class="lowin-group password-group">
+                        <label>密码 <!-- <a href="#" class="forgot-link">忘记密码?</a> --></label>
+                        <input type="password" name="loginPwd" autocomplete="current-password" class="lowin-input login-param">
+                    </div>
+                    <button class="lowin-btn  ladda-button login-btn" data-style="zoom-in">
+                        <span class="ladda-label">登录</span>
+                    </button>
+            </div>
+        </div>
+
+    </div>
+
+    <footer class="lowin-footer">
+
+    </footer>
+</div>
+
+<script src="/static/plugins/jquery/jquery.min.js"></script>
+<script src="/static/plugins/layer/layer.js"></script>
+<script src="/static/common/param.js"></script>
+<script src="/static/plugins/secure/md5.js"></script>
+<script src="/static/plugins/bootstrap/ladda/spin.js"></script>
+<script src="/static/plugins/bootstrap/ladda/ladda.js"></script>
+<script src="/static/common/session.js"></script>
+<script src="/static/login/js/auth.js"></script>
+<script>
+
+    layer.config({
+        extend: 'moon/style.css', //加载新皮肤
+        skin: 'layer-ext-moon' //一旦设定，所有弹层风格都采用此主题。
+    });
+
+    function getLoginParam(){
+
+        let param = Plain.getParam('.login-param');
+
+        param['loginPwd'] = md5(param['loginPwd']);
+
+        return param;
+
+    }
+    Auth.init({
+
+        doLogin:function () {
+
+            let l = Ladda.create(document.querySelector('.login-btn'));
+            l.start();
+
+            $.ajax({
+                url:'/doLogin',
+                method:'post',
+                dataType:'json',
+                data: getLoginParam(),
+                success:function (data) {
+                    l.stop();
+                    if (data.code === 0)
+                    {
+                        if (parent.window !== undefined)
+                        {
+                            parent.window.location.href='/main';
+                        }
+                        else
+                        {
+                            window.location.href='/main';
+                        }
+                    }
+                    else
+                    {
+                        layer.msg(data.message,{icon:2,shift:6});
+                    }
+
+                },
+                error:function (data) {
+                    l.stop();
+                    console.log(data);
+                }
+            });
+
+        },
+        // doForget:function () {
+        //
+        //     let l = Ladda.create(document.querySelector('.login-btn'));
+        //     l.start();
+        //     $.ajax({
+        //
+        //         url:'/doForget',
+        //         method:'post',
+        //         dataType:'json',
+        //         data:Plain.getParam('.forget-param'),
+        //         success:function (data) {
+        //             l.stop();
+        //             window.location.href='/main';
+        //         },
+        //         error:function (data) {
+        //             l.stop();
+        //             layer.msg('操作异常',{icon:2,shift:6});
+        //             console.log(data);
+        //         }
+        //     });
+        // }
+    });
+</script>
+</body>
+</html>

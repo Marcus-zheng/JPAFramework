@@ -23,7 +23,7 @@
 
     <properties>
         <!--  ***********************  build ******************************* -->
-
+        <platform.version>1.0-SNAPSHOT</platform.version>
         <!--  ***********************  base ******************************* -->
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <encoding>UTF-8</encoding>
@@ -60,6 +60,26 @@
 
     <dependencyManagement>
         <dependencies>
+            <dependency>
+                <groupId>com.marcus</groupId>
+                <artifactId>marcus-base</artifactId>
+                <version>${platform.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.marcus</groupId>
+                <artifactId>marcus-model</artifactId>
+                <version>${platform.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.marcus</groupId>
+                <artifactId>marcus-security</artifactId>
+                <version>${platform.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>marcus.redis</groupId>
+                <artifactId>marcus-redis</artifactId>
+                <version>${platform.version}</version>
+            </dependency>
             <dependency>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-dependencies</artifactId>

@@ -1,4 +1,4 @@
-package com.marcus.base.model;
+package com.marcus.auth.model;
 
 import javax.persistence.*;
 import java.util.Date;
@@ -24,8 +24,8 @@ public abstract class BaseModel {
     protected Long operatorId;
 
     /** 记录操作人登录账号 */
-    @Column(name = "login_name", length = 30)
-    protected String loginName;
+    @Column(name = "operator_name", length = 30)
+    protected String operatorName;
 
     /** 记录创建时间，不允许修改 */
     @Column(name = "CREATE_TIME", updatable = false)
@@ -58,12 +58,12 @@ public abstract class BaseModel {
         this.operatorId = operatorId;
     }
 
-    public String getLoginName() {
-        return loginName;
+    public String getOperatorName() {
+        return operatorName;
     }
 
-    public void setLoginName(String loginName) {
-        this.loginName = loginName;
+    public void setOperatorName(String operatorName) {
+        this.operatorName = operatorName;
     }
 
     public Date getCreateTime() {

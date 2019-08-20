@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>用户新增/编辑管理</title>
+
+    <link href="/static/plugins/bootstrap/validator/bootstrapValidator.min.css" rel="stylesheet">
+    <link href="/static/plugins/bootstrap/frame/bootstrap.min.css?v=3.3.6" rel="stylesheet">
+    <link href="/static/plugins/bootstrap/frame/font-awesome.min.css?v=4.4.0" rel="stylesheet">
+    <link href="/static/plugins/bootstrap/frame/animate.css" rel="stylesheet">
+    <link href="/static/plugins/bootstrap/frame/style.css?v=4.1.0" rel="stylesheet">
+    <link href="/static/plugins/bootstrap/select/bootstrap-select.min.css" rel="stylesheet">
+</head>
+<body>
+<div class="container-fluid">
+    <h2 class="page-header">用户新增/编辑管理</h2>
+
+    <div class="col-md-12">
+        <div class="col-md-5">
+            <div class="panel panel-info">
+                <div class="panel-heading">
+                    <h3 class="panel-title">友情提示</h3>
+                </div>
+                <!--编辑操作权限 start-->
+                <div class="panel-body right_centent">
+                    <div >
+                        <p>初始用户密码为123456，请在用户创建后及时修改，避免后续带来的问题</p>
+                    </div>
+                </div>
+                <!--编辑操作权限 end-->
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="form-horizontal" id="configData">
+                <form>
+                    <input name="id" type="hidden" class="query-cond"/>
+                    <div class="form-group" style="padding-top:10px">
+                        <label class="col-xs-1 text-right input-sm"  for="loginName">用户名:</label>
+                        <div class="col-lg-2">
+                            <input id="loginName" name="loginName" type="text" class="form-control query-cond edit-cond"/>
+                        </div>
+                    </div>
+
+                    <div class="form-group" style="padding-top:10px">
+                        <label class="col-xs-1 text-right input-sm"  for="name">姓名:</label>
+                        <div class="col-lg-2">
+                            <input id="name" name="name" type="text" class="form-control  query-cond edit-cond"/>
+                        </div>
+                    </div>
+
+                    <div class="form-group" style="padding-top:10px">
+                        <label class="col-xs-1 text-right input-sm"  for="email">邮箱:</label>
+                        <div class="col-lg-2">
+                            <input id="email" name="email" type="text" class="form-control query-cond edit-cond"/>
+                        </div>
+                    </div>
+
+                    <div class="form-group" style="padding-top:10px">
+                        <label class="col-xs-1 text-right input-sm"  for="phone">手机号:</label>
+                        <div class="col-lg-2">
+                            <input id="phone" name="phone" type="text" class="form-control query-cond edit-cond"/>
+                        </div>
+                    </div>
+
+                    <div class="form-group" style="padding-top:10px">
+                        <label class="col-xs-1 text-right input-sm"  for="isSuperuser">超级用户:</label>
+                        <div class="col-lg-2">
+                            <input id="isSuperuser" name="isSuperuser" type="checkbox" value="1" class="form-control" style="height: 22px;width: 30px"/>
+                        </div>
+                    </div>
+
+                    <div class="form-group" style="padding-top:10px">
+                        <label class="col-xs-1 text-right input-sm">分配角色:</label>
+                        <div class="col-lg-2">
+                            <select id="selectRoleIds" title="请选择角色" class="selectpicker show-tick form-control" multiple></select>
+                        </div>
+                    </div>
+
+                    <div class="form-group" style="padding-top:10px;padding-left: 80px;width: auto;">
+                        <button id="createUser" class="btn btn-sm btn-primary" type="submit">保存</button>
+                        <button id="back" class="btn btn-sm btn-info" type="button">返回</button>
+                    </div>
+                </form>
+        </div>
+    </div>
+</div>
+
+<script src="/static/plugins/jquery/jquery.min.js"></script>
+<script src="/static/plugins/layer/layer.js"></script>
+<script src="/static/common/param.js"></script>
+<script src="/static/plugins/secure/md5.js"></script>
+<script src="/static/plugins/bootstrap/frame/bootstrap.min.js"></script>
+<script src="/static/plugins/bootstrap/select/bootstrap-select.min.js"></script>
+<script src="/static/plugins/bootstrap/validator/bootstrapValidator.min.js"></script>
+<script src="/static/common/session.js"></script>
+<script src="/static/user/userEdit.js?v=1.0.0"></script>
+</body>
+</html>

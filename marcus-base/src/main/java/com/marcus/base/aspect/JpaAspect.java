@@ -1,7 +1,7 @@
 package com.marcus.base.aspect;
 
 import com.marcus.base.bean.SecuritySubject;
-import com.marcus.base.model.BaseModel;
+import com.marcus.auth.model.BaseModel;
 import com.marcus.security.SecurityService;
 import org.apache.commons.beanutils.BeanUtils;
 import org.aspectj.lang.ProceedingJoinPoint;
@@ -55,7 +55,7 @@ public class JpaAspect {
                 SecuritySubject securitySubject = securityService.getLoginSubject(getCurrentSessionId());
                 if (securitySubject!=null) {
                     BeanUtils.setProperty(entity, "operatorId", securitySubject.getUserId());
-                    BeanUtils.setProperty(entity, "loginName", securitySubject.getLoginName());
+                    BeanUtils.setProperty(entity, "operatorName", securitySubject.getLoginName());
                 }
             }
         }

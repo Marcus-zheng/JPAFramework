@@ -13,13 +13,13 @@ import java.io.Serializable;
 @Setter
 @Getter
 @Accessors(chain = true)
-public class PagerBean implements Serializable {
+public class PageBean implements Serializable {
     private static final long serialVersionUID = -7953892880033122091L;
 
-    // 每页几条
-    private int limit = 10;
     // 第几页，从0开始算
-    private int offset = 0;
+    private int page = 0;
+    // 每页几条
+    private int size = 10;
     // 总条数
     private long total = 0;
     // 数据
