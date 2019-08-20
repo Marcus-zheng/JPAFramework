@@ -11,7 +11,11 @@
     <name>${project.artifactId}</name>
     <modules>
         <module>marcus-auth</module>
+        <module>marcus-base</module>
         <module>marcus-model</module>
+        <module>marcus-pom</module>
+        <module>marcus-redis</module>
+        <module>marcus-security</module>
         <module>marcus-startup</module>
     </modules>
 </project>
