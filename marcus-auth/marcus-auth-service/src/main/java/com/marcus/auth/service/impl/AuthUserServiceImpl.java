@@ -8,7 +8,7 @@ import com.marcus.auth.service.AuthUserService;
 import com.marcus.auth.vo.AuthUserItem;
 import com.marcus.base.bean.PageBean;
 import com.marcus.base.vo.ResultMessage;
-import com.marcus.core.exception.BusinessException;
+import com.marcus.base.exception.BusinessException;
 import com.marcus.core.utils.ModelUtil;
 import org.apache.commons.codec.digest.DigestUtils;
 import org.apache.commons.lang3.StringUtils;

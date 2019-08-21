@@ -3,35 +3,25 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <parent>
-        <artifactId>marcus-auth</artifactId>
+        <artifactId>marcus-system</artifactId>
         <groupId>com.marcus</groupId>
         <version>1.0-SNAPSHOT</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.marcus</groupId>
-    <artifactId>marcus-auth-service</artifactId>
+    <artifactId>marcus-system-api</artifactId>
     <version>${parent.version}</version>
     <name>${project.artifactId}</name>
 
     <dependencies>
         <dependency>
             <groupId>com.marcus</groupId>
-            <artifactId>marcus-core</artifactId>
+            <artifactId>marcus-base</artifactId>
             <optional>true</optional>
         </dependency>
         <dependency>
             <groupId>com.marcus</groupId>
-            <artifactId>marcus-security</artifactId>
-            <optional>true</optional>
-        </dependency>
-        <dependency>
-            <groupId>com.marcus</groupId>
-            <artifactId>marcus-auth-model</artifactId>
-            <version>${parent.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>com.marcus</groupId>
-            <artifactId>marcus-auth-api</artifactId>
+            <artifactId>marcus-system-vo</artifactId>
             <version>${parent.version}</version>
         </dependency>
     </dependencies>

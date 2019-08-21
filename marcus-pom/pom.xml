@@ -67,6 +67,11 @@
             </dependency>
             <dependency>
                 <groupId>com.marcus</groupId>
+                <artifactId>marcus-core</artifactId>
+                <version>${platform.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.marcus</groupId>
                 <artifactId>marcus-model</artifactId>
                 <version>${platform.version}</version>
             </dependency>

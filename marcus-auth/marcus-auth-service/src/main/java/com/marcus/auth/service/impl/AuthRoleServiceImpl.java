@@ -16,7 +16,7 @@ import com.marcus.auth.vo.AuthRoleItem;
 import com.marcus.base.bean.PageBean;
 import com.marcus.base.vo.ResultMessage;
 import com.marcus.base.vo.SelectBean;
-import com.marcus.core.exception.BusinessException;
+import com.marcus.base.exception.BusinessException;
 import com.marcus.core.utils.ModelUtil;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;

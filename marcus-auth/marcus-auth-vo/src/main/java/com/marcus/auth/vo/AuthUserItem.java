@@ -26,15 +26,15 @@ public class AuthUserItem implements Serializable {
     // 登录密码
     private String loginPwd;
     // 用户姓名
-    private String name;
+    private String userName;
     // 用户手机号码
     private String phone;
     // 用户邮箱
     private String email;
-    // 是否是超级用户 0：否，1：是
-    private Integer isSuperuser;
-    // 初始化标识 0：否，1：是
-    private Integer initFlag;
+    // 是否是超级用户
+    private Boolean isSuperuser;
+    // 初始化标识
+    private Boolean initFlag;
     // 用户关联角色id
     private String roleIds;
 }

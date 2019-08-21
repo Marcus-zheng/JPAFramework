@@ -15,7 +15,8 @@
         <module>marcus-model</module>
         <module>marcus-pom</module>
         <module>marcus-redis</module>
-        <module>marcus-security</module>
         <module>marcus-startup</module>
+        <module>marcus-core</module>
+        <module>marcus-system</module>
     </modules>
 </project>

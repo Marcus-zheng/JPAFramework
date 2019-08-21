@@ -13,4 +13,6 @@ public class BaseConstant {
     public static final String AUTH_TOKEN = "auth:token:";
     // api token
     public static final String API_TOKEN = "api:token:";
+    // 系统参数
+    public static final String SYSTEM_PARAM = "system:param:";
 }
