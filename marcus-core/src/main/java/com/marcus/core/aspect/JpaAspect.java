@@ -1,14 +1,11 @@
 package com.marcus.core.aspect;
 
-import com.marcus.base.bean.SecuritySubject;
 import com.marcus.auth.model.BaseModel;
-import com.marcus.security.SecurityService;
 import org.apache.commons.beanutils.BeanUtils;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Pointcut;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
@@ -24,8 +21,8 @@ import java.util.Iterator;
 @Aspect
 @Component
 public class JpaAspect {
-    @Autowired(required = false)
-    private SecurityService securityService;
+//    @Autowired(required = false)
+//    private SecurityService securityService;
 
     @Pointcut("execution(* com.marcus..dao..save(..))")
     public void saveOrUpdate() {
@@ -49,16 +46,16 @@ public class JpaAspect {
     }
 
     private void updateBaseInfo(Object entity) throws IllegalAccessException, InvocationTargetException {
-        if(securityService!=null) {
-            String sessionId = getCurrentSessionId();
-            if(sessionId!=null) {
-                SecuritySubject securitySubject = securityService.getLoginSubject(getCurrentSessionId());
-                if (securitySubject!=null) {
-                    BeanUtils.setProperty(entity, "operatorId", securitySubject.getUserId());
-                    BeanUtils.setProperty(entity, "operatorName", securitySubject.getLoginName());
-                }
-            }
-        }
+//        if(securityService!=null) {
+//            String sessionId = getCurrentSessionId();
+//            if(sessionId!=null) {
+//                SecuritySubject securitySubject = securityService.getLoginSubject(getCurrentSessionId());
+//                if (securitySubject!=null) {
+//                    BeanUtils.setProperty(entity, "operatorId", securitySubject.getUserId());
+//                    BeanUtils.setProperty(entity, "operatorName", securitySubject.getLoginName());
+//                }
+//            }
+//        }
         BeanUtils.setProperty(entity, "createTime", new Date());
         BeanUtils.setProperty(entity, "updateTime", new Date());
     }

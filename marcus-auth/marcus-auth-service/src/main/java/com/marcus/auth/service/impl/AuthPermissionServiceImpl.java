@@ -6,7 +6,6 @@ import com.marcus.auth.model.AuthPermission;
 import com.marcus.auth.service.AuthPermissionService;
 import com.marcus.auth.vo.AuthPermissionItem;
 import com.marcus.core.utils.ModelUtil;
-import com.marcus.security.SecurityService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -23,8 +22,8 @@ public class AuthPermissionServiceImpl implements AuthPermissionService {
 
 	@Autowired
 	private AuthPermissionDao authPermissionDao;
-	@Autowired
-	private SecurityService securityService;
+//	@Autowired
+//	private SecurityService securityService;
 
 	@Override
 	public AuthPermissionItem initData(AuthPermissionItem item) {

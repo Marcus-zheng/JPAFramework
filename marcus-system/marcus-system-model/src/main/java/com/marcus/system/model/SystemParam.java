@@ -17,7 +17,7 @@ import java.io.Serializable;
  * @Version 1.0
  **/
 @Entity
-@Table(name = "base_sysparam")
+@Table(name = "system_sysparam")
 @Getter
 @Setter
 @Accessors(chain=true)
@@ -25,12 +25,12 @@ public class SystemParam extends BaseModel implements Serializable {
     private static final long serialVersionUID = 8852047834812153944L;
 
     // 参数名称
-    @Column(name = "PARAM_NAME", length = 50, unique = true)
+    @Column(name = "param_name", length = 50, unique = true)
     private String paramName;
     // 参数值
-    @Column(name = "PARAM_VALUE")
+    @Column(name = "param_value")
     private String paramValue;
     // 描述
-    @Column(name = "DESCRIPTION")
+    @Column(name = "description")
     private String description;
 }

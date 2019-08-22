@@ -1,8 +1,8 @@
 package com.marcus.startup.handler;
 
 import com.alibaba.fastjson.JSON;
-import com.zzl.common.utils.ExceptionUtils;
-import com.zzl.common.vo.Result;
+import com.marcus.base.vo.ResultMessage;
+import com.marcus.core.utils.ExceptionUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.core.Ordered;
@@ -40,7 +40,7 @@ public class CommonExceptionHandlerResolver implements HandlerExceptionResolver 
                 (request.getHeader("X-Requested-With") != null && request.getHeader("X-Requested-With").contains("XMLHttpRequest")))) {
             try
             {
-                Result errorResult = ExceptionUtils.getErrorResult(ex);
+                ResultMessage errorResult = ExceptionUtils.getErrorResult(ex);
                 response.setContentType("application/json;charset=UTF-8");
                 PrintWriter writer = response.getWriter();
                 writer.write(JSON.toJSONString(errorResult));

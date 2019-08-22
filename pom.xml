@@ -18,5 +18,6 @@
         <module>marcus-startup</module>
         <module>marcus-core</module>
         <module>marcus-system</module>
+        <module>marcus-security</module>
     </modules>
 </project>

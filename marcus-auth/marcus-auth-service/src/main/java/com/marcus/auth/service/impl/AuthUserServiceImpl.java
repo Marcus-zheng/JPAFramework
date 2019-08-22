@@ -93,8 +93,8 @@ public class AuthUserServiceImpl implements AuthUserService {
                 Predicate code = criteriaBuilder.like(root.get("loginName"), "%"+item.getLoginName()+"%");
                 predicates.add(code);
             }
-            if (StringUtils.isNotBlank(item.getName())){
-                Predicate name = criteriaBuilder.like(root.get("name"),"%"+item.getName()+"%" );
+            if (StringUtils.isNotBlank(item.getUserName())){
+                Predicate name = criteriaBuilder.like(root.get("userName"),"%"+item.getUserName()+"%" );
                 predicates.add(name);
             }
             return criteriaBuilder.and(predicates.toArray(new Predicate[0]));

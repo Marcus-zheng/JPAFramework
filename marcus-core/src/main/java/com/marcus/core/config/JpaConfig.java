@@ -8,8 +8,8 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
  * @Author Marcus.zheng
  * @Date 2019/8/19 16:55
  **/
-@Configuration
-@EnableJpaRepositories(basePackages = { "com.marcus.**.dao" })
-@EntityScan("com.marcus.**.model")
-public class JpaConfig {
-}
+//@Configuration
+//@EnableJpaRepositories(basePackages = { "com.marcus.**.dao" })
+//@EntityScan("com.marcus.**.model")
+//public class JpaConfig {
+//}

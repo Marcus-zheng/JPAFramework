@@ -9,6 +9,8 @@ import com.marcus.system.vo.SystemParamItem;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.StringRedisTemplate;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.*;
 
@@ -16,6 +18,8 @@ import java.util.*;
  * @Author Marcus.zheng
  * @Date 2019/8/21 18:03
  **/
+@Service
+@Transactional
 public class SystemParamServiceImpl implements SystemParamService {
     @Autowired
     private SystemParamDao systemParamDao;
