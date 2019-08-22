@@ -14,9 +14,9 @@ import com.marcus.auth.service.AuthRoleService;
 import com.marcus.auth.vo.AuthPermissionItem;
 import com.marcus.auth.vo.AuthRoleItem;
 import com.marcus.base.bean.PageBean;
+import com.marcus.base.exception.BusinessException;
 import com.marcus.base.vo.ResultMessage;
 import com.marcus.base.vo.SelectBean;
-import com.marcus.base.exception.BusinessException;
 import com.marcus.core.utils.ModelUtil;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -109,8 +109,9 @@ public class AuthRoleServiceImpl implements AuthRoleService {
 			return criteriaBuilder.and(predicates.toArray(new Predicate[0]));
 		};
 		Page<AuthRole> page = authRoleDao.findAll(specification, pageable);
+		List<AuthRoleItem> authRoleItemList = ModelUtil.copyListProperties(page.getContent(), AuthRoleItem.class);
 		pageBean.setTotal(page.getTotalPages());
-		pageBean.setRows(page.getContent());
+		pageBean.setRows(authRoleItemList);
 		return pageBean;
 	}
 

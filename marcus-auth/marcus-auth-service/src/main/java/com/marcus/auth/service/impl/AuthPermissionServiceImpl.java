@@ -82,12 +82,11 @@ public class AuthPermissionServiceImpl implements AuthPermissionService {
 	@Override
 	public List<AuthPermissionItem> getAllMenus(Long userId, Boolean isSuperuser) {
 		List<AuthPermissionItem> allMenus = new ArrayList<>();
+		List<AuthPermission> authPermissionList = new ArrayList<>();
 		if (Objects.nonNull(isSuperuser) && isSuperuser){
 			// 超级用户则加载所有菜单
-			List<AuthPermission> authPermissionList = authPermissionDao.findAll();
-			allMenus = ModelUtil.copyListProperties(authPermissionList, AuthPermissionItem.class);
+			authPermissionList = authPermissionDao.findAll();
 		} else {
-			List<AuthPermission> authPermissionList = new ArrayList<>();
 			// 获取系统一级菜单
 			List<AuthPermission> systemMenus = authPermissionDao.getSystemMenus(userId, AuthContants.RESOURCE_TYPE_SYSTEM);
 			if (!CollectionUtils.isEmpty(systemMenus)){
@@ -103,6 +102,17 @@ public class AuthPermissionServiceImpl implements AuthPermissionService {
 						}
 					}
 				}
+			}
+		}
+		if (!CollectionUtils.isEmpty(authPermissionList)){
+			AuthPermissionItem authPermissionItem = null;
+			for (AuthPermission authPermission : authPermissionList) {
+				authPermissionItem = new AuthPermissionItem();
+				ModelUtil.copyPropertiesIgnoreNull(authPermission, authPermissionItem);
+				if (Objects.nonNull(authPermission.getParent())){
+					authPermissionItem.setParentId(authPermission.getParent().getId());
+				}
+				allMenus.add(authPermissionItem);
 			}
 		}
 		return allMenus;

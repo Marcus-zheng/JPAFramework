@@ -102,8 +102,9 @@ public class AuthUserServiceImpl implements AuthUserService {
             return criteriaBuilder.and(predicates.toArray(new Predicate[0]));
         };
         Page<AuthUser> page = authUserDao.findAll(specification, pageable);
+        List<AuthUserItem> authUserItems = ModelUtil.copyListProperties(page.getContent(), AuthUserItem.class);
         pageBean.setTotal(page.getTotalPages());
-        pageBean.setRows(page.getContent());
+        pageBean.setRows(authUserItems);
         return pageBean;
     }
 

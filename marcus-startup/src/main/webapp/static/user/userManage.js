@@ -91,7 +91,7 @@ $table.bootstrapTable({
         {
             title: '用户姓名',
             align: 'center',
-            field: 'name'
+            field: 'userName'
         },
         {
             title: '手机号码',
