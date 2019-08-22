@@ -39,7 +39,9 @@ public class AuthUserServiceImpl implements AuthUserService {
     public void initData(AuthUserItem item) {
         AuthUser authUser = authUserDao.findByLoginName(item.getLoginName());
         if (Objects.isNull(authUser)) {
-            saveItem(item);
+            authUser = new AuthUser();
+            ModelUtil.copyPropertiesIgnoreNull(item, authUser);
+            authUserDao.save(authUser);
         }
     }
 
