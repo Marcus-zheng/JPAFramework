@@ -19,6 +19,7 @@ import org.springframework.stereotype.Component;
  **/
 @Aspect
 @Component
+// 决定注解是否生效
 @ConditionalOnExpression("${system.open.logAspect:false}")
 public class LogAspect {
     private static final Logger logger = LoggerFactory.getLogger(LogAspect.class);
