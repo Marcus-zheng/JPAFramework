@@ -52,7 +52,7 @@
         <mysql.driver.verion>5.1.47</mysql.driver.verion>
         <reflections.version>0.9.11</reflections.version>
         <!--<netty.version>4.1.25.Final</netty.version>-->
-        <poi.version>3.17</poi.version>
+        <poi.version>4.1.1</poi.version>
         <lombok.version>1.16.20</lombok.version>
         <pinyin4j.version>2.5.0</pinyin4j.version>
         <thumbnailator.version>0.4.8</thumbnailator.version>
